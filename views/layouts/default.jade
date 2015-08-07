@@ -1,0 +1,21 @@
+head
+    block title
+        title Thingchain api documentation
+    link(rel="stylesheet", type="text/css", href='/components/bootstrap/dist/css/bootstrap.min.css')
+    link(rel="stylesheet", type="text/css", href='/css/simple-sidebar.css')
+body
+    div#wrapper
+        include sidebar
+        div#page-content-wrapper
+            .container-fluid
+                .row
+                    .col-lg-12
+                        block content
+                            h1 Docs
+    script(src='/js/jquery.min.js')
+    script(src='/components/bootstrap/dist/js/bootstrap.min.js')
+    script
+        | $("#menu-toggle").click(function(e) {
+        |   e.preventDefault();
+        |   $("#wrapper").toggleClass("toggled");
+        | });

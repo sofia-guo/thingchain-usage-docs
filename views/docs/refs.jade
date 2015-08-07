@@ -1,0 +1,34 @@
+extends ../layouts/default
+
+
+block title
+    title Thingchain API: Glossary
+    
+block content
+    h1(style="text-align: center") Reference to terms
+
+        
+    p
+        | Thingchain is the private blockchain maintained by Skuchain. When the custody of goods is passed from one address to another,
+        | the transaction is recorded into Thingchain.
+        
+    p
+        | A Smartbond is a multi-sig address on the Bitcoin Blockchain which allows Buyers and Sellers to interact in a trustable way in all phases of a commerce transaction. 
+        | It replaces  Letters of Credit, Open Account and other trade finance instruments using secure cryptography. This allows Sellers to get paid faster, 
+        | Buyers to get deep visibility into their supply chain and Banks to significantly reduce their fiduciary responsibility.
+        
+    p
+        | A BuySig is a digital address which holds the monetary value of the designated Smartbond deal for t amount of time (agreed to between the
+        | two parties involved). A seller can only move the funds to a SellSig after they have minted/possessed/released popcodes
+        | and the t amount of time has elasped.
+        
+    p
+        | A SellSig is a digital address which holds the monetary value of the designated Smartbond deal for t amount of predetermined
+        | time. A seller can only withdraw the funds to their own personal address after t amount of time has elasped. However, if during
+        | the t amount of time the buyer is dissatisfied with the goods, he/she may place a hold on the funds in the SellSig. This will
+        | alert a predetermined arbitrator to enter and sort out the issue.
+        
+    a(href='https://thingchain.com/api') Full API reference
+    
+    p.
+    a(href='https://thingchain.com/doc') Thingchain API Introduction

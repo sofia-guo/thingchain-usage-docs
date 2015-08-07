@@ -1,0 +1,50 @@
+extends ../layouts/default
+
+block title
+    title Thingchain API: Manufacturer
+    
+block content
+    h2(style="color: blue; text-align:center") 1. Manufacturer
+    p
+        | Sunny Bear Farms produces honey in Christchurch, New Zealand. Every two weeks, they receive orders from their 
+        | exporter, New Zealand Company. The Farm received an order for 100k jars of honey, which will eventually be shipped to 
+        | various retailers in China.
+    p
+        | John, who is responsible for overseeing packaging and shipment of the honey, takes out his smartphone and opens the "Tracer"
+        | mobile app, which is connected via the internet to Thingchain. As a manufacturer, Sunny Bear Farms purchased the appropriate version
+        | of the application. John taps on "Mint New Batch" from the home screen.
+    p
+        | The app requires John to input the batch information:
+        
+    ol
+        li Product serial number
+        li Value (Ex: 700,000 USD)
+        li Weight (Ex: 5,000 kg)
+        li Total Units (Ex: 100,000 jars)
+        li Shipment Date
+        li Units per package (500 jars per shipment package)
+        
+    p
+        | John completes the fields.
+    p
+        | When he taps the "Next" button, the application submits the batch information to the Skuchain Cloud.
+        | The cloud recognizes John's device and finds John's identity/key pair. John's identity address withdraws a 
+        | value from the Thingchain faucet using the operation "/faucet/withdraw". The app uses John's userID, idAddress, the entered value (100k),
+        | units of measurement (jars of honey), and the serial number, weight, and shipment date (metadata) to complete the parameters for the operation. 
+    p
+        | Tracer then submits the retrieved value to the popcode's address in the Skuchain cloud, which begins working on the command for "/popcode/derive". The numPopcodes (100), BatchId, sequat, and userID
+        | are all entered by the application. Popcodes for the batch are derived, and the app recieves the codes' private keys and address information, 
+        | which it will convert to a QR code. John's identity is used to sign the transaction which desposits value at the derived popcode's address.
+        | Once the transaction is completed, the Skuchain cloud broadcasts the transaction to Thingchain.
+        
+    p   
+        | John checks the amount of popcodes to be printed: 100k "child-codes" for each jar, 200 codes for the 500 jars/box of shipment boxes, and
+        | one private key to accompany the entire shipment. When all is correct, he taps the "send to printer" button.
+    p   
+        | Tracer, which is connected to the printer, sends the popcodes out. While the printer begins, John returns to the home screen, where he can check on the status of
+        | this batch's Smartbond. He sees the batch ID of the just-minted batch in the "Unclaimed" appear, and seals the process by tapping on the batch to claim.
+        | Tracer notifies the Skuchain server to move funds worth $400,000 from the BuySig to the SellSig on Sunny Bear Farms' and their Exporter's (New Zealand Co.)
+        | SmartBond. Sunny Bear Farms will wait for the pre-determined amount of time that the money will sit in the SellSig; if New Zealand Co. is satisfied with the shipment upon
+        | receiving the 200 boxes, they will release the funds for Sunny Bear to claim after the time limit ends. Meanwhile, the chain of custody moves on to the 
+        a(href='/docs/exporter.html') exporter.
+        
